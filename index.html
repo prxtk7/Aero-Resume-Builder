@@ -1,0 +1,201 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #172554;
+            color: white;
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        nav a:hover {
+            color: #93c5fd;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 90px 20px;
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            color: white;
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 25px;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: white;
+            color: #1e40af;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background-color: #dbeafe;
+        }
+
+        .projects {
+            padding: 60px 10%;
+            text-align: center;
+        }
+
+        .projects h2 {
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+        .project-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .project-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            width: 280px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            text-align: left;
+        }
+
+        .project-card h3 {
+            color: #1d4ed8;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: #555;
+        }
+
+        footer {
+            background-color: #172554;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>My Portfolio</h1>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h2>Hello, World!</h2>
+
+        <p>
+            Welcome to my personal website.
+            I'm learning HTML, CSS, and web development
+            by building practical projects.
+        </p>
+
+        <a href="#projects" class="button">Explore My Projects</a>
+    </section>
+
+    <section class="projects" id="projects">
+        <h2>My Projects</h2>
+
+        <div class="project-container">
+
+            <div class="project-card">
+                <h3>Project One</h3>
+                <p>
+                    A beginner-friendly project exploring
+                    web design and user experience.
+                </p>
+            </div>
+
+            <div class="project-card">
+                <h3>Project Two</h3>
+                <p>
+                    An experiment with data analysis,
+                    visualisation, and problem-solving.
+                </p>
+            </div>
+
+            <div class="project-card">
+                <h3>Project Three</h3>
+                <p>
+                    A practical exploration of technology
+                    and human-centred design.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="contact">
+        <p>Contact: hello@example.com</p>
+        <p>&copy; 2026 My Personal Portfolio</p>
+    </footer>
+
+</body>
+</html>
+```
