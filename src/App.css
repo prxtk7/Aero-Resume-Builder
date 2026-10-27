@@ -1,0 +1,987 @@
+/* ---------- Page layout ---------- */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+.app-footer {
+  padding: 16px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  border-top: 1px solid var(--color-border);
+}
+
+/* ---------- Header ---------- */
+.header {
+  padding: 12px 16px;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--color-text);
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 700;
+}
+
+.brand-name {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+/* ---------- Buttons ---------- */
+.button-primary {
+  padding: 12px 22px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+}
+
+.button-primary:hover {
+  background: var(--color-primary-hover);
+}
+
+.button-secondary {
+  padding: 8px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.button-secondary:hover {
+  border-color: var(--color-primary);
+  background: #eff6ff;
+}
+
+.button-remove {
+  padding: 4px 10px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: none;
+  color: #b91c1c;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.button-remove:hover {
+  border-color: #fecaca;
+  background: #fef2f2;
+}
+
+/* One visible focus ring for every interactive element */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+/* ---------- Welcome screen ---------- */
+.welcome {
+  display: grid;
+  gap: 48px;
+  padding-top: 24px;
+}
+
+.welcome-intro {
+  max-width: 680px;
+  display: grid;
+  gap: 16px;
+  justify-items: start;
+}
+
+.eyebrow {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-primary);
+}
+
+.welcome h1 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.2;
+}
+
+.lead {
+  font-size: 1.1rem;
+  color: var(--color-muted);
+}
+
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.step {
+  padding: 20px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.step-number {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  margin-bottom: 12px;
+  border-radius: 50%;
+  background: #dbeafe;
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.step h2 {
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+
+.step p {
+  color: var(--color-muted);
+}
+
+/* ---------- Builder workspace ---------- */
+
+.workspace {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* Stack editor and preview on tablets/phones */
+@media (max-width: 860px) {
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+}
+
+.panel {
+  padding: 20px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+/* Prevent long words or URLs from stretching the columns */
+.workspace > * {
+  min-width: 0;
+}
+
+.panel-preview {
+  background: #eef2f7;
+}
+
+/* On wide screens the preview stays in view while the form scrolls */
+@media (min-width: 861px) {
+  .panel-preview {
+    position: sticky;
+    top: 16px;
+    max-height: calc(100vh - 32px);
+    overflow-y: auto;
+  }
+}
+
+.panel-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-muted);
+  margin-bottom: 16px;
+}
+
+.muted {
+  color: var(--color-muted);
+}
+
+/* ---------- Editor form ---------- */
+.editor {
+  display: grid;
+  gap: 28px;
+}
+
+.form-section {
+  display: grid;
+  gap: 12px;
+  justify-items: start;
+}
+
+.form-section > * {
+  width: 100%;
+}
+
+.form-section > .button-secondary {
+  width: auto;
+}
+
+.form-section-title {
+  font-size: 1.05rem;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 520px) {
+  .field-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.field-wide {
+  grid-column: 1 / -1;
+}
+
+.field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.field input:disabled {
+  background: var(--color-bg);
+  color: var(--color-muted);
+}
+
+.field-hint {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
+.field-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.field-checkbox input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+}
+
+.field-checkbox label {
+  font-weight: 500;
+}
+
+.entry-list {
+  display: grid;
+  gap: 12px;
+}
+
+.entry-card {
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: #fafbfd;
+}
+
+.entry-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.entry-card-header h4 {
+  font-size: 0.95rem;
+  overflow-wrap: anywhere;
+}
+
+.empty-text {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.skill-form {
+  display: flex;
+  align-items: end;
+  gap: 8px;
+}
+
+.skill-form .field {
+  flex: 1;
+}
+
+.skill-form .button-secondary {
+  padding-block: 8px;
+}
+
+.skill-chips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  max-width: 100%;
+  padding: 4px 4px 4px 12px;
+  border-radius: 999px;
+  background: #dbeafe;
+  color: var(--color-primary-hover);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.skill-chip span {
+  overflow-wrap: anywhere;
+}
+
+.skill-chip button {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  color: inherit;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.skill-chip button:hover {
+  background: #bfdbfe;
+}
+
+/* ---------- Workspace toolbar, template picker, saving ---------- */
+.workspace-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.toolbar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.save-status {
+  font-size: 0.85rem;
+  color: #166534;
+}
+
+.save-status-warning {
+  color: #9a3412;
+}
+
+.notice {
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  border: 1px solid #fed7aa;
+  border-radius: var(--radius);
+  background: #fff7ed;
+  color: #9a3412;
+  font-size: 0.9rem;
+}
+
+.button-danger {
+  color: #b91c1c;
+}
+
+.button-danger:hover {
+  border-color: #b91c1c;
+  background: #fef2f2;
+}
+
+.button-danger-solid {
+  padding: 8px 16px;
+  border: none;
+  border-radius: var(--radius);
+  background: #b91c1c;
+  color: #fff;
+  font-weight: 600;
+}
+
+.button-danger-solid:hover {
+  background: #991b1b;
+}
+
+.confirm-box {
+  display: grid;
+  gap: 8px;
+  max-width: 360px;
+  padding: 12px 14px;
+  border: 1px solid #fecaca;
+  border-radius: var(--radius);
+  background: #fef2f2;
+  font-size: 0.9rem;
+}
+
+.confirm-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.preview-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px 16px;
+  margin-bottom: 16px;
+}
+
+.preview-toolbar .panel-title {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.template-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 0;
+  padding: 4px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+
+/* Read by screen readers only; the options explain themselves visually */
+.template-picker legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.template-picker label {
+  position: relative;
+}
+
+/* The real radio button stays in place (for keyboard use) but is invisible */
+.template-picker input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.template-picker span {
+  display: block;
+  padding: 6px 14px;
+  border-radius: 7px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+.template-picker input:checked + span {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.template-picker input:not(:checked):hover + span {
+  background: #eff6ff;
+  color: var(--color-primary);
+}
+
+.template-picker input:focus-visible + span {
+  outline: 3px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+.export {
+  display: grid;
+  gap: 4px;
+  justify-items: end;
+  max-width: 220px;
+}
+
+.export .button-primary {
+  padding: 9px 18px;
+}
+
+.export-hint {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  text-align: right;
+}
+
+@media (max-width: 520px) {
+  .export {
+    justify-items: start;
+    max-width: none;
+  }
+
+  .export-hint {
+    text-align: left;
+  }
+}
+
+.field-error {
+  font-size: 0.8rem;
+  color: #b91c1c;
+}
+
+.field input[aria-invalid='true'] {
+  border-color: #b91c1c;
+}
+
+/* ---------- Resume preview "paper" (shared by all templates) ---------- */
+.preview-page {
+  /* A4 proportions; the page grows taller if the content needs it */
+  aspect-ratio: 210 / 297;
+  padding: 8%;
+  background: #fff;
+  color: #0f172a;
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.12);
+  display: grid;
+  align-content: start;
+  gap: 16px;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  /* Lets templates adapt when the preview itself is narrow (phones) */
+  container-type: inline-size;
+}
+
+.preview-empty {
+  align-content: center;
+  justify-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.preview-empty-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.preview-header {
+  display: grid;
+  gap: 2px;
+}
+
+.preview-header h3 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.preview-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.preview-contact {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 14px;
+  font-size: 0.8rem;
+  color: #475569;
+}
+
+.preview-page a {
+  color: inherit;
+}
+
+.preview-section {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+
+.preview-section-body {
+  display: grid;
+  gap: 10px;
+}
+
+.preview-section h4 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.preview-entry {
+  display: grid;
+  gap: 2px;
+}
+
+.preview-entry-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0 12px;
+}
+
+.preview-entry-head > :last-child:not(:first-child),
+.preview-entry-sub {
+  color: #475569;
+}
+
+.preview-entry-sub:empty {
+  display: none;
+}
+
+/* Keep the line breaks the user typed */
+.preview-text {
+  white-space: pre-line;
+}
+
+.preview-bullets {
+  margin: 4px 0 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 2px;
+}
+
+.preview-plain-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 4px;
+}
+
+/* ---------- Template: Classic ---------- */
+/* Serif type, centred header, ruled section headings */
+.resume-classic {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.resume-classic .preview-header {
+  justify-items: center;
+  text-align: center;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #0f172a;
+}
+
+.resume-classic .preview-header h3 {
+  font-size: 1.7rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.resume-classic .preview-title {
+  font-style: italic;
+}
+
+.resume-classic .preview-contact {
+  justify-content: center;
+}
+
+.resume-classic .preview-section h4 {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  padding-bottom: 3px;
+  border-bottom: 1px solid #0f172a;
+}
+
+/* ---------- Template: Modern ---------- */
+/* Bold name with an accent bar, accent headings, side column */
+.resume-modern {
+  --accent: #1d4ed8;
+  gap: 20px;
+}
+
+.resume-modern .preview-header {
+  padding-left: 14px;
+  border-left: 4px solid var(--accent);
+}
+
+.resume-modern .preview-header h3 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.resume-modern .preview-title {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.resume-modern .preview-section h4 {
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.resume-modern .resume-main,
+.resume-modern .resume-side {
+  display: grid;
+  align-content: start;
+  gap: 18px;
+}
+
+.resume-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 30%;
+  gap: 24px;
+}
+
+.resume-side {
+  padding-left: 16px;
+  border-left: 1px solid #cbd5e1;
+}
+
+.resume-side .preview-cert {
+  display: grid;
+}
+
+@container (max-width: 440px) {
+  .resume-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .resume-side {
+    padding: 16px 0 0;
+    border-left: none;
+    border-top: 1px solid #cbd5e1;
+  }
+}
+
+/* ---------- Template: Minimal ---------- */
+/* Plain single column, headings in a narrow left column, tight spacing */
+.resume-minimal {
+  gap: 12px;
+  font-size: 0.82rem;
+}
+
+.resume-minimal .preview-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+.resume-minimal .preview-header h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.resume-minimal .preview-title {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #475569;
+}
+
+.resume-minimal .preview-contact {
+  margin-top: 2px;
+  color: #0f172a;
+}
+
+.resume-minimal .preview-section {
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 8px 16px;
+}
+
+.resume-minimal .preview-section h4 {
+  font-size: 0.72rem;
+  color: #475569;
+  padding-top: 1px;
+}
+
+.resume-minimal .preview-section-body {
+  gap: 8px;
+}
+
+.resume-minimal .preview-entry {
+  gap: 1px;
+}
+
+@container (max-width: 440px) {
+  .resume-minimal .preview-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Printing / Save as PDF ---------- */
+/* Only the resume is printed. Everything else in the app is hidden. */
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm 15mm;
+  }
+
+  :root,
+  body {
+    background: #fff;
+  }
+
+  .no-print,
+  .header,
+  .app-footer {
+    display: none !important;
+  }
+
+  .app {
+    display: block;
+    min-height: 0;
+  }
+
+  .app-main {
+    max-width: none;
+    padding: 0;
+  }
+
+  .workspace {
+    display: block;
+  }
+
+  .panel-preview {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    padding: 0;
+    border: none;
+    background: none;
+  }
+
+  .preview-page {
+    aspect-ratio: auto;
+    padding: 0;
+    box-shadow: none;
+    font-size: 10pt;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .resume-minimal {
+    font-size: 9.5pt;
+  }
+
+  .preview-page a {
+    text-decoration: none;
+  }
+
+  /* Keep headings with their content. Short entries stay in one piece;
+     entries with bullet points may continue on the next page, but only
+     between bullets, never straight after the job title. */
+  .preview-header,
+  .preview-entry:not(:has(.preview-bullets)),
+  .preview-cert,
+  .preview-entry-head,
+  .preview-bullets li {
+    break-inside: avoid;
+  }
+
+  .preview-section h4,
+  .preview-entry-head,
+  .preview-entry-sub {
+    break-after: avoid;
+  }
+
+  /* Block layout breaks across pages more reliably than grid */
+  .preview-page,
+  .resume-modern .resume-main,
+  .resume-modern .resume-side,
+  .resume-classic .preview-section,
+  .resume-modern .preview-section,
+  .preview-section-body,
+  .preview-entry {
+    display: block;
+  }
+
+  .preview-page > * + *,
+  .resume-main > * + *,
+  .resume-side > * + * {
+    margin-top: 16px;
+  }
+
+  .resume-minimal > * + * {
+    margin-top: 12px;
+  }
+
+  /* Minimal: the heading sits in the left margin of a block section */
+  .resume-minimal .preview-section {
+    display: block;
+    position: relative;
+    padding-left: 128px;
+  }
+
+  .resume-minimal .preview-section h4 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 112px;
+  }
+
+  .resume-classic .preview-section > * + *,
+  .resume-modern .preview-section > * + *,
+  .preview-section-body > * + * {
+    margin-top: 8px;
+  }
+}
